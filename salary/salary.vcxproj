@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E64C70E9-D1EE-486C-B738-74EFC8498029}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>salary</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AddCommissionEmployeeTrans.h" />
+    <ClInclude Include="AddEmployeeTrans.h" />
+    <ClInclude Include="AddHourlyEmployeeTrans.h" />
+    <ClInclude Include="AddSalaryEmployeeTrans.h" />
+    <ClInclude Include="AddSalesReceiptTrans.h" />
+    <ClInclude Include="AddServiceChargeTrans.h" />
+    <ClInclude Include="AddTimeCardTrans.h" />
+    <ClInclude Include="Affiliation.h" />
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="ModifyEmployeeUnmemberTrans.h" />
+    <ClInclude Include="NoAffiliation.h" />
+    <ClInclude Include="UnionAffiliation.h" />
+    <ClInclude Include="CommissionPayClassification.h" />
+    <ClInclude Include="CommissionPaySchedule.h" />
+    <ClInclude Include="DelEmployeeTrans.h" />
+    <ClInclude Include="DirectPayMethod.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="EmployeeDatabase.h" />
+    <ClInclude Include="HoldPayMethod.h" />
+    <ClInclude Include="HourlyPayClassification.h" />
+    <ClInclude Include="HourlyPaySchedule.h" />
+    <ClInclude Include="MailPayMethod.h" />
+    <ClInclude Include="ModifyDirectPayTrans.h" />
+    <ClInclude Include="ModifyEmployeeAddressTrans.h" />
+    <ClInclude Include="ModifyEmployeeCommissionlyRateTrans.h" />
+    <ClInclude Include="ModifyEmployeeHourlyRateTrans.h" />
+    <ClInclude Include="ModifyEmployeeMemberTrans.h" />
+    <ClInclude Include="ModifyEmployeeNameTrans.h" />
+    <ClInclude Include="ModifyEmployeeSalarylyRateTrans.h" />
+    <ClInclude Include="ModifyEmployeeTransaction.h" />
+    <ClInclude Include="ModifyHoldCheckTrans.h" />
+    <ClInclude Include="ModifyMailCheckTrans.h" />
+    <ClInclude Include="MonthlyPaySchedule.h" />
+    <ClInclude Include="PayClassification.h" />
+    <ClInclude Include="PayMethod.h" />
+    <ClInclude Include="PaySchedule.h" />
+    <ClInclude Include="SalaryPayClassification.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Transaction.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AddCommissionEmployeeTrans.cpp" />
+    <ClCompile Include="AddEmployeeTrans.cpp" />
+    <ClCompile Include="AddHourlyEmployeeTrans.cpp" />
+    <ClCompile Include="AddSalaryEmployeeTrans.cpp" />
+    <ClCompile Include="AddSalesReceiptTrans.cpp" />
+    <ClCompile Include="AddServiceChargeTrans.cpp" />
+    <ClCompile Include="AddTimeCardTrans.cpp" />
+    <ClCompile Include="Affiliation.cpp" />
+    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="ModifyEmployeeUnmemberTrans.cpp" />
+    <ClCompile Include="NoAffiliation.cpp" />
+    <ClCompile Include="UnionAffiliation.cpp" />
+    <ClCompile Include="CommissionPayClassification.cpp" />
+    <ClCompile Include="CommissionPaySchedule.cpp" />
+    <ClCompile Include="DelEmployeeTrans.cpp" />
+    <ClCompile Include="DirectPayMethod.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="EmployeeDatabase.cpp" />
+    <ClCompile Include="HoldPayMethod.cpp" />
+    <ClCompile Include="HourlyPayClassification.cpp" />
+    <ClCompile Include="HourlyPaySchedule.cpp" />
+    <ClCompile Include="MailPayMethod.cpp" />
+    <ClCompile Include="ModifyDirectPayTrans.cpp" />
+    <ClCompile Include="ModifyEmployeeAddressTrans.cpp" />
+    <ClCompile Include="ModifyEmployeeCommissionlyRateTrans.cpp" />
+    <ClCompile Include="ModifyEmployeeHourlyRateTrans.cpp" />
+    <ClCompile Include="ModifyEmployeeMemberTrans.cpp" />
+    <ClCompile Include="ModifyEmployeeNameTrans.cpp" />
+    <ClCompile Include="ModifyEmployeeSalarylyRateTrans.cpp" />
+    <ClCompile Include="ModifyEmployeeTransaction.cpp" />
+    <ClCompile Include="ModifyHoldCheckTrans.cpp" />
+    <ClCompile Include="ModifyMailCheckTrans.cpp" />
+    <ClCompile Include="MonthlyPaySchedule.cpp" />
+    <ClCompile Include="PayClassification.cpp" />
+    <ClCompile Include="PayMethod.cpp" />
+    <ClCompile Include="PaySchedule.cpp" />
+    <ClCompile Include="salary.cpp" />
+    <ClCompile Include="SalaryPayClassification.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
