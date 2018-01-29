@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include <memory>
+#include <vector>
 
 class Employee;
 
@@ -17,6 +18,8 @@ public:
 	void addUnionMember(int memberID, Employee *employee);
 	Employee* getEmployeeByMemberID(int memberID);
 	void delMember(int memberID);
+
+	std::vector<int> getAllEmployeeID();
 
 private:
 	std::map<int, std::shared_ptr<Employee>> m_employees;

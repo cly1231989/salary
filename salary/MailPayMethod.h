@@ -11,6 +11,9 @@ public:
 
 	std::string getMailAddress() const;
 
+	// Inherited via PayMethod
+	virtual void pay(const PayCheck & payCheck) override;
+
 private:
 	std::string m_mailAddress;
 };

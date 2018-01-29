@@ -186,7 +186,9 @@
     <ClInclude Include="..\salary\ModifyMailCheckTrans.h" />
     <ClInclude Include="..\salary\MonthlyPaySchedule.h" />
     <ClInclude Include="..\salary\NoAffiliation.h" />
+    <ClInclude Include="..\salary\PayCheck.h" />
     <ClInclude Include="..\salary\PayClassification.h" />
+    <ClInclude Include="..\salary\PayDayTrans.h" />
     <ClInclude Include="..\salary\PayMethod.h" />
     <ClInclude Include="..\salary\PaySchedule.h" />
     <ClInclude Include="..\salary\SalaryPayClassification.h" />
@@ -228,7 +230,9 @@
     <ClCompile Include="..\salary\ModifyMailCheckTrans.cpp" />
     <ClCompile Include="..\salary\MonthlyPaySchedule.cpp" />
     <ClCompile Include="..\salary\NoAffiliation.cpp" />
+    <ClCompile Include="..\salary\PayCheck.cpp" />
     <ClCompile Include="..\salary\PayClassification.cpp" />
+    <ClCompile Include="..\salary\PayDayTrans.cpp" />
     <ClCompile Include="..\salary\PayMethod.cpp" />
     <ClCompile Include="..\salary\PaySchedule.cpp" />
     <ClCompile Include="..\salary\salary.cpp" />

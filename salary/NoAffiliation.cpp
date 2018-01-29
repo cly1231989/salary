@@ -11,7 +11,7 @@ NoAffiliation::~NoAffiliation()
 {
 }
 
-float NoAffiliation::getAllFees()
+float NoAffiliation::getAllFees(const PayCheck &payCheck)
 {
 	return 0.0f;
 }

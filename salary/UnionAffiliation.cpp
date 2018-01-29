@@ -29,13 +29,18 @@ void UnionAffiliation::addServiceCharge(float amount, const Date & date)
 	m_serviceCharges[date] = serviceCharge;
 }
 
-float UnionAffiliation::getAllFees()
+float UnionAffiliation::getAllFees(const PayCheck &payCheck)
 {
 	float allFees = m_memberRate;
-	std::for_each(std::begin(m_serviceCharges), std::end(m_serviceCharges), [&allFees](const std::pair<Date, ServiceCharge>& serviceCharge)
+
+	auto firstServiceCharge = m_serviceCharges.begin();
+	for (; firstServiceCharge != m_serviceCharges.end(); firstServiceCharge++)
 	{
-		allFees += serviceCharge.second.amount;
-	});
+		if (Date::isInBetween(firstServiceCharge->second.date, payCheck.getBeginDate(), payCheck.getEndDate()))
+		{
+			allFees += firstServiceCharge->second.amount;
+		}
+	}
 	
 	return allFees;
 }

@@ -138,6 +138,12 @@
     <ClInclude Include="..\salary\AddServiceChargeTrans.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\salary\PayCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\salary\PayDayTrans.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -261,6 +267,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\salary\AddServiceChargeTrans.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\salary\PayCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\salary\PayDayTrans.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,6 +9,9 @@ public:
 
 	int getSalary();
 
+	// Inherited via PayClassification
+	virtual float payday(PayCheck & payCheck) override;
+
 private:
 	int m_salary;
 };

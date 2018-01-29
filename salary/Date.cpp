@@ -20,10 +20,27 @@ Date::~Date()
 {
 }
 
-Date::WeekDay Date::getWeekDay()
+int Date::getYear() const
 {
-	WeekDay weekDays[] = { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
-	std::time_t timeTemp = std::mktime(&m_day);
+	return m_day.tm_year;
+}
+
+int Date::getMonth() const
+{
+	return m_day.tm_mon;
+}
+
+int Date::getDay() const
+{
+	return m_day.tm_mday;
+}
+
+Date::WeekDay Date::getWeekDay() const
+{
+	WeekDay weekDays[] = { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+
+	std::tm newDay = m_day;
+	std::time_t timeTemp = std::mktime(&newDay);
 	std::tm time = { 0 };
 	localtime_s(&time, &timeTemp);
 	
@@ -52,4 +69,43 @@ bool Date::operator<(const Date & d) const
 		else
 			return m_day.tm_mday < d.m_day.tm_mday;
 	}
+}
+
+bool Date::operator<=(const Date & d) const
+{
+	return *this < d || *this == d;
+}
+
+bool Date::operator>(const Date & d) const
+{
+	return d < *this;
+}
+
+bool Date::operator>=(const Date & d) const
+{
+	return !(*this < d);
+}
+
+Date Date::operator+(int day) const
+{
+	Date newDate = *this;
+	newDate.m_day.tm_mday += day;
+	return newDate;
+}
+
+Date Date::operator-(int day) const
+{
+	Date newDate = *this;
+	newDate.m_day.tm_mday -= day;
+	return newDate;
+}
+
+bool Date::isLastDayOfMonth() const
+{
+	return m_day.tm_mon != (*this+1).m_day.tm_mon;
+}
+
+bool Date::isInBetween(const Date & date, const Date & beginDate, const Date & endDate)
+{
+	return date > beginDate && date <= endDate;
 }

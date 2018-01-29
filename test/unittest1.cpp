@@ -33,6 +33,8 @@
 #include "Date.h"
 #include "AddSalesReceiptTrans.h"
 #include "AddServiceChargeTrans.h"
+#include "PayCheck.h"
+#include "PayDayTrans.h"
 #include <string>
 #include <memory>
 
@@ -373,7 +375,7 @@ namespace test
 			auto unionAffiliation = dynamic_cast<UnionAffiliation*>(affiliation.get());
 			Assert::AreEqual(unionAffiliation->getMemberRate(), memberRate);
 			Assert::AreEqual(unionAffiliation->getMemberID(), memberID);
-			Assert::AreEqual(unionAffiliation->getAllFees(), memberRate);
+			//Assert::AreEqual(unionAffiliation->getAllFees(), memberRate);
 
 			float amount = 25;
 			Date date(2018, 1, 26);
@@ -385,15 +387,107 @@ namespace test
 			auto unionAffiliation1 = dynamic_cast<UnionAffiliation*>(affiliation1.get());
 			Assert::AreEqual(unionAffiliation1->getMemberRate(), memberRate);
 			Assert::AreEqual(unionAffiliation1->getMemberID(), memberID);
-			Assert::AreEqual(unionAffiliation1->getAllFees(), memberRate + amount);
+			//Assert::AreEqual(unionAffiliation1->getAllFees(), memberRate + amount);
+		}
+
+		static void testPayHourlyEmployeeOnRightDate()
+		{
+			AddHourlyEmployeeTrans addHourlyEmployeeTrans(employeeID, name, address, hourlyRate);
+			addHourlyEmployeeTrans.excute();
+
+			Date date(2018, 1, 15);
+			AddTimeCardTrans addTimeCardTrans(employeeID, date, 7);
+			addTimeCardTrans.excute();
+
+			Date date1(2018, 1, 17);
+			AddTimeCardTrans addTimeCardTrans1(employeeID, date1, 11);
+			addTimeCardTrans1.excute();
+
+			Date date2(2018, 1, 19);
+			PayDayTrans payDayTrans(date2);
+			payDayTrans.excute();
+
+			float gross = 7 * hourlyRate + 8 * hourlyRate + 3 * hourlyRate * 1.5f;
+			PayCheck payCheck;
+			payDayTrans.getPayCheck(employeeID, payCheck);
+			Assert::AreEqual(payCheck.getGross(), gross);
+			
+		}
+
+		static void testPayAffiliationFees()
+		{
+			AddHourlyEmployeeTrans addHourlyEmployeeTrans(employeeID, name, address, hourlyRate);
+			addHourlyEmployeeTrans.excute();
+
+			Date date(2018, 1, 15);
+			AddTimeCardTrans addTimeCardTrans(employeeID, date, 7);
+			addTimeCardTrans.excute();
+
+			Date date1(2018, 1, 17);
+			AddTimeCardTrans addTimeCardTrans1(employeeID, date1, 11);
+			addTimeCardTrans1.excute();
+
+			int memberID = 5;
+			float memberRate = 30.0;
+			ModifyEmployeeMemberTrans modifyEmployeeMemberTrans(employeeID, memberID, memberRate);
+			modifyEmployeeMemberTrans.excute();
+
+			float amount = 25;
+			Date date4(2018, 1, 6);
+			AddServiceChargeTrans addServiceChargeTrans(memberID, amount, date4);
+			addServiceChargeTrans.excute();
+
+			Date date5(2018, 1, 12);
+			AddTimeCardTrans addTimeCardTrans2(employeeID, date5, 5);
+			addTimeCardTrans2.excute();
+
+			Date date6(2018, 1, 20);
+			AddTimeCardTrans addTimeCardTrans3(employeeID, date6, 5);
+			addTimeCardTrans3.excute();
+
+			float amount1 = 35;
+			Date date2(2018, 1, 16);
+			AddServiceChargeTrans addServiceChargeTrans1(memberID, amount1, date2);
+			addServiceChargeTrans1.excute();
+
+			Date date3(2018, 1, 19);
+			PayDayTrans payDayTrans(date3);
+			payDayTrans.excute();
+
+			float gross = 7 * hourlyRate + 8 * hourlyRate + 3 * hourlyRate * 1.5f;
+			float netPay = 7 * hourlyRate + 8 * hourlyRate + 3 * hourlyRate * 1.5f - (memberRate + amount1);
+
+			PayCheck payCheck;
+			payDayTrans.getPayCheck(employeeID, payCheck);
+
+			Assert::AreEqual(payCheck.getGross(), gross);
+			Assert::AreEqual(payCheck.getDeduction(), memberRate + amount1);
+			Assert::AreEqual(payCheck.getNetPay(), netPay);
+		}
+
+		static void testPayHourlyEmployeeOnWrongDate()
+		{
+			AddHourlyEmployeeTrans addHourlyEmployeeTrans(employeeID, name, address, hourlyRate);
+			addHourlyEmployeeTrans.excute();
+
+			Date date1(2018, 1, 25);
+			PayDayTrans payDayTrans(date1);
+			payDayTrans.excute();
+
+			PayCheck payCheck;
+			Assert::IsFalse(payDayTrans.getPayCheck(employeeID, payCheck));
+		}
+
+		static void testPayHourlyEmployee()
+		{
+			testPayHourlyEmployeeOnWrongDate();
+			testPayHourlyEmployeeOnRightDate();
+			testPayAffiliationFees();
 		}
 
 		TEST_METHOD(TestPayDay)
 		{
-			Date date(2018, 1, 26);
-			PayDayTrans payDayTrans(date);
-
-			payDayTrans.excute();
+			testPayHourlyEmployee();
 		}
 	};
 }

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "EmployeeDatabase.h"
 #include "Employee.h"
+#include <algorithm>
 
 EmployeeDatabase gEmployeeDatabase;
 
@@ -41,4 +42,18 @@ Employee* EmployeeDatabase::getEmployeeByMemberID(int memberID)
 void EmployeeDatabase::delMember(int memberID)
 {
 	m_members.erase(memberID);
+}
+
+std::vector<int> EmployeeDatabase::getAllEmployeeID()
+{
+	std::vector<int> allEmployeeIDs;
+
+	auto firstEmployee = m_employees.begin();
+	auto lastEmployee = m_employees.end();
+	for (; firstEmployee != lastEmployee; firstEmployee++)
+	{
+		allEmployeeIDs.push_back(firstEmployee->first);
+	}
+
+	return allEmployeeIDs;
 }

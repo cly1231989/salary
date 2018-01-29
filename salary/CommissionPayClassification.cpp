@@ -34,3 +34,8 @@ int CommissionPayClassification::getSalesReceiptAmount(const Date & date)
 	return m_salesReceipts[date].amount;
 }
 
+float CommissionPayClassification::payday(PayCheck & payCheck)
+{
+	return 0.0f;
+}
+

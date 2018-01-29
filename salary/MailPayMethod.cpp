@@ -16,3 +16,7 @@ std::string MailPayMethod::getMailAddress()  const
 {
 	return m_mailAddress;
 }
+
+void MailPayMethod::pay(const PayCheck & payCheck)
+{
+}

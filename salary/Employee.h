@@ -1,6 +1,8 @@
 #pragma once
 #include <memory>
 #include <string>
+#include "Date.h"
+#include "PayCheck.h"
 
 class PayMethod;
 class PaySchedule;
@@ -29,6 +31,11 @@ public:
 	std::unique_ptr<PayMethod>& getPayMethod();
 	std::unique_ptr<PaySchedule>& getPaySchedule();
 	std::unique_ptr<PayClassification>& getPayClassification();
+
+	bool isPayDay(const Date &date);
+	void payday(PayCheck &payCheck);
+
+	Date getBeginDate(const Date &endDate);
 
 private:
 	int m_employeeID;

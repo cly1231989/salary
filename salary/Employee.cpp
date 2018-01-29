@@ -81,3 +81,26 @@ std::unique_ptr<PayClassification>& Employee::getPayClassification()
 {
 	return m_payClassification;
 }
+
+bool Employee::isPayDay(const Date & date)
+{
+	return m_paySchedule->isPayDay(date);
+}
+
+void Employee::payday(PayCheck & payCheck)
+{
+	float gross = m_payClassification->payday(payCheck);
+	float dedution = m_affiliation->getAllFees(payCheck);
+	float netPay = gross - dedution;
+
+	payCheck.setDeduction(dedution);
+	payCheck.setGross(gross);
+	payCheck.setNetPay(netPay);
+
+	m_payMethod->pay(payCheck);
+}
+
+Date Employee::getBeginDate(const Date & endDate)
+{
+	return m_paySchedule->getBeginDate(endDate);
+}

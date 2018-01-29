@@ -22,3 +22,7 @@ std::string DirectPayMethod::getAccount() const
 {
 	return m_account;
 }
+
+void DirectPayMethod::pay(const PayCheck & payCheck)
+{
+}

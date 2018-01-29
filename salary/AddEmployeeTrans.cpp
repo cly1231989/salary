@@ -5,6 +5,7 @@
 #include "PayClassification.h"
 #include "PaySchedule.h"
 #include "employee.h"
+#include "NoAffiliation.h"
 #include <memory>
 
 extern EmployeeDatabase gEmployeeDatabase;
@@ -27,6 +28,7 @@ void AddEmployeeTrans::excute()
 	employee->setPayMethod(std::make_unique<MailPayMethod>("123"));
 	employee->setPayClassification(getPayClassification());
 	employee->setPaySchedule(getPaySchedule());
+	employee->setAffiliation(std::make_unique<NoAffiliation>());
 
 	gEmployeeDatabase.addEmployee(m_employeeID, employee);
 }

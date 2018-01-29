@@ -156,6 +156,8 @@
     <ClInclude Include="Date.h" />
     <ClInclude Include="ModifyEmployeeUnmemberTrans.h" />
     <ClInclude Include="NoAffiliation.h" />
+    <ClInclude Include="PayCheck.h" />
+    <ClInclude Include="PayDayTrans.h" />
     <ClInclude Include="UnionAffiliation.h" />
     <ClInclude Include="CommissionPayClassification.h" />
     <ClInclude Include="CommissionPaySchedule.h" />
@@ -198,6 +200,8 @@
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="ModifyEmployeeUnmemberTrans.cpp" />
     <ClCompile Include="NoAffiliation.cpp" />
+    <ClCompile Include="PayCheck.cpp" />
+    <ClCompile Include="PayDayTrans.cpp" />
     <ClCompile Include="UnionAffiliation.cpp" />
     <ClCompile Include="CommissionPayClassification.cpp" />
     <ClCompile Include="CommissionPaySchedule.cpp" />

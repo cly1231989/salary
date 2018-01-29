@@ -14,7 +14,7 @@ public:
 	void addServiceCharge(float amount, const Date &date);
 
 	// Inherited via Affiliation
-	virtual float getAllFees() override;
+	virtual float getAllFees(const PayCheck &payCheck) override;
 
 private:
 	struct ServiceCharge
